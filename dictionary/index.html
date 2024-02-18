@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>מילון פיקוד העורף</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css"/>
+  </head>
+  <body>
+    <nav>
+      <div class="right-content">
+        <a href="index.html" class="fa fa-home fa-2x"></a>
+        <a class="bold navbar-button" id="home" href="index.html">עמוד הבית</a>
+        <a class="navbar-button" href="usage.html">השימוש במילון</a>
+        <div style="width: 0.2vw; height: 2.5vw; background-color: orange;"></div>
+        <a class="navbar-button" href="about.html">על המילון</a>
+        <div style="width: 0.2vw; height: 2.5vw; background-color: orange;"></div>
+        <a class="navbar-button" href="https://docs.google.com/document/u/0/d/1BCwKb6ru9TPohRP7ATA32dDKL3myXNNb/mobilebasic?pli=1">הורדת קובץ המילון</a>
+      </div>
+      
+      <div class="left-content">
+        <a class="navbar-button" href="https://www.oref.org.il/">פיקוד העורף</a>
+        <img class="pakar-logo" id="pakar-nav" src="assets/images/pakar-logo.png" alt="pakar-logo">
+      </div>
+    </nav>
+
+    <div id="mobile-menu">
+      <img
+        id="hamburger-menu"
+        src="assets/images/hamburgerMenu.svg"
+        alt="Hamburger Menu"
+      />
+
+      <div id="mobile-nav-links">
+        <img id="x-btn" src="assets/images/x.svg" alt="x-btn" />
+        <a class="bold navbar-button" id="homeMobile" href="index.html"
+          >עמוד הבית</a
+        >
+        <a class="navbar-button" href="usage.html">השימוש במילון</a>
+        <a class="navbar-button" href="about.html">אודות המילון</a>
+        <a class="navbar-button" href="https://inri.orc.org.il/%D7%94%D7%A1%D7%A4%D7%A8%D7%99%D7%99%D7%94-%D7%94%D7%9C%D7%90%D7%95%D7%9E%D7%99%D7%AA-%D7%9C%D7%97%D7%99%D7%A8%D7%95%D7%9D/%D7%A4%D7%99%D7%A7%D7%95%D7%93-%D7%94%D7%A2%D7%95%D7%A8%D7%A3/">ספרות פיקוד העורף</a>
+      </div>
+    </div>
+
+    <header>
+      <h1 style="font-family: 'Open-sans-condensed-bold';">מילון פיקוד העורף</h1>
+      <h2 style="font-family: 'Open-sans-condensed';">מילון המונחים של פיקוד העורף</h2>
+      <img src="assets/images/index.png" alt="index-background" id="index-background">
+      <img src="assets/images/book.png" alt="book-background" class="book-background">
+    </header>
+
+    <div>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="אני רוצה לדעת על..." />
+        <button id="searchBtn">
+          <img
+            id="magnifying-glass"
+            src="assets/images/magnifying-glass.svg"
+            alt="magnifyingGlass"
+          />
+        </button>        
+        
+        <div class="search-buttons-container">
+        <a href="category-search.html">
+          <button id="domainSearchBtn" class="search-button">
+                חיפוש לפי תחום מקצועי
+          </button>
+        </a>
+        <a href="alphabet-search.html">
+          <button id="alphabetSearchBtn" class="search-button">
+            חיפוש לפי אותיות א-ב
+          </button>
+        </a>
+        </div>
+      </div>
+
+      <ul id="wordList"></ul>
+      <p id="message" class="hidden">לא נמצאו תוצאות. נסו שוב</p>
+    </div>
+
+    <div class="container" id="mainContent">
+      <h2 style="font-family: 'Open-sans-condensed-bold';">קצת עלינו</h2>
+        <p>ברוכים הבאים למילון פיקוד העורף!</p>
+        <p>
+          מטרת המילון מונחי פיקוד העורף היא להנהיג אחידות במינוח ולהטמיע כללים
+          אחידים, <br />הן בדיבור והן בכתיבת מסמכים בעשייה היום-יומית בפיקוד
+          העורף ברגיעה ובחירום.
+        </p>
+          <a href="about.html" id="moreInfoBtn">למידע נוסף</a>
+      </div>
+    </div>
+
+    <div class="container" id="searchResultsIndex" style="display: none;">
+      <p id="searchQueryMessage"></p>
+      <ul id="searchResultsList"></ul>
+    </div>
+
+    <button onclick="topFunction()" id="top-btn">
+      <img src="assets/images/top-arrow.png" alt="top-btn">
+  </button>
+
+    <footer>
+      <img class="pakar-logo" id="pakar-foot" src="assets/images/pakar-logo.png" alt="pakar-logo">
+      <div class="footerEl">
+          <b>ענף התורה, ההדרכה והחילוץ</b>
+          <p>&#169; כל הזכויות שמורות לפיקוד העורף</p>
+      </div>
+      
+      <div class="footerEl">
+        <b>למעבר לספרות פיקוד העורף</b>
+        <div>
+          <a href="#" class="fa fa-globe" style="color:orange"></a>
+          <a href="https://inri.orc.org.il/">https://inri.orc.org.il/</a>
+        </div>
+      </div>
+
+      <div class="footerEl">
+        <b>עקבו אחרינו</b> 
+        <div>
+          <a href="#" class="fa fa-instagram" style="color:orange"></a>
+          <a href="https://www.instagram.com/tohadsnews/?igsh=MWl4bHVqdmh1c2trNA%3D%3D">tohadsnews</a>
+        </div>
+      </div>
+
+      <div class="footerEl">
+        <b>כתבו לנו</b>
+        <div>
+          <a href="#" class="fa fa-envelope-o" style="color:orange"></a>
+          <a href="mailto:oreftohad@gmail.com">oreftohad@gmail.com</a>
+        </div>
+      </div>
+      </div>
+    </footer>
+
+    <script src="nav.js"></script>
+    <script src="free-search.js"></script>
+  </body>
+</html>
