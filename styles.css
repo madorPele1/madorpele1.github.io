@@ -339,8 +339,8 @@ footer {
   font-size: xx-large;
 }
 
-.pakar-logo {
-  width: 3vw;
+#pakar-foot, #pakar-nav {
+  width: 2.5vw;
   align-self: center;
 }
 
