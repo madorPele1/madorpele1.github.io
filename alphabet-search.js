@@ -1,5 +1,12 @@
 window.addEventListener('load', initAlphabetSearch)
 
+function topFunction() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
+}
+
 function initAlphabetSearch() {
   let dictionaryData = JSON.parse(localStorage.getItem('dictionaryData'))
 
