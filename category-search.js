@@ -4,7 +4,7 @@ function topFunction() {
   window.scrollTo({
     top: 0,
     behavior: 'smooth',
-  });
+  })
 }
 
 function initCategorySearch() {
@@ -16,11 +16,14 @@ function initCategorySearch() {
   const searchQueryMessage = document.getElementById('searchQueryMessage')
 
   function markSelectedCategory(categoryLink) {
-    const categoryLinks = categoryLinksContainer.querySelectorAll('.category-link');
+    const categoryLinks =
+      categoryLinksContainer.querySelectorAll('.category-link')
     categoryLinks.forEach((link) => {
-      link.classList.remove('selected');
-    });
-    categoryLink.classList.add('selected');
+      link.removeAttribute('transition-style', 'in:wipe:right')
+      link.classList.remove('selected')
+    })
+    categoryLink.classList.add('selected')
+    categoryLink.setAttribute('transition-style', 'in:wipe:right')
   }
 
   function displayWords(words) {
@@ -58,8 +61,8 @@ function initCategorySearch() {
     categoryLinksContainer.querySelectorAll('.category-link')
   categoryLinks.forEach((categoryLink) => {
     categoryLink.addEventListener('click', () => {
-      filterWordsByCategory(categoryLink.textContent);
-      markSelectedCategory(categoryLink);
-    });
-  });
+      filterWordsByCategory(categoryLink.textContent)
+      markSelectedCategory(categoryLink)
+    })
+  })
 }
