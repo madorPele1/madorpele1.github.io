@@ -1,3 +1,5 @@
+@import "https://unpkg.com/transition-style";
+
 @font-face {
   font-family: 'Open-sans';
   src: url(assets/fonts/OpenSansHebrew-Light.ttf);
@@ -261,7 +263,7 @@ footer {
 
 @media screen and (max-height: 1100px) {
   .container.infoContent {
-    top: 10vh;
+    top: 3vh;
   }
   .info-footer {
     margin-top: 300px;
@@ -449,5 +451,17 @@ footer {
   font-family: Open-sans;
   border-radius: 5px;
   padding: 12px;
+}
 
+@keyframes wipe-in-right {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+[transition-style="in:wipe:right"] {
+  animation: 1s cubic-bezier(.25, 1, .30, 1) wipe-in-right both;
 }
