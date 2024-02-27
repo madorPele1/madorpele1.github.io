@@ -28,8 +28,8 @@ async function initApp() {
 
   function search() {
     const searchTerm = searchInput.value.toLowerCase();
-    const filteredWords = dictionaryData.words.filter(({ word, definition }) =>
-      word.toLowerCase().includes(searchTerm) || definition.toLowerCase().includes(searchTerm)
+    const filteredWords = dictionaryData.words.filter(({ word, definition, translation }) =>
+      word.toLowerCase().includes(searchTerm) || definition.toLowerCase().includes(searchTerm) || translation.toLowerCase().includes(searchTerm)
     );
 
     searchQueryMessage.textContent = `תוצאות חיפוש עבור: ${searchTerm}`;
