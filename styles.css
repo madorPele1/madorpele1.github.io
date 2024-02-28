@@ -239,6 +239,11 @@ footer {
   align-self: center;
 }
 
+#pakar-foot {
+  position: relative;
+  right: 5vw;
+}
+
 @media screen and (max-width: 2200px) {
   .book-background {
     position: relative;
@@ -296,6 +301,7 @@ footer {
   }
   #pakar-foot {
     width: 20vw;
+    position: static;
   }
   .book-background {
     right: 14vw;
