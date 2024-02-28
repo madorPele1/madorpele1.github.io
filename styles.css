@@ -75,7 +75,8 @@ input {
   border-radius: 0px 10px 10px 0px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   color: #333;
-  min-width: 42vw;
+  width: 45vw;
+  min-width: 24vw;
 }
 
 #searchBtn {
@@ -267,11 +268,6 @@ footer {
   }
 }
 
-@media screen and (max-height: 1000px) {
-  .info-footer {
-    margin-top: 600px;
-  }
-}
 @media (max-width: 1500px) and (max-height: 900px) {
   .book-background {
     position: relative;
@@ -284,6 +280,14 @@ footer {
     top: -65vh;
   }
 }
+
+@media (max-width: 1700px) and (max-height: 950px) {
+  .book-background {
+    position: relative;
+    top: -75vh;
+  }
+}
+
 @media screen and (max-width: 830px) {
   nav .right-content,
   .left-content {
@@ -322,6 +326,9 @@ footer {
     position: relative;
     right: 15%;
     width: 60vw;
+  }
+  .info-footer {
+    margin-top: 50px;
   }
 }
 
@@ -418,8 +425,8 @@ footer {
 
 .book-background {
   position: relative;
-  width: 37vh;
-  right: clamp(29px, 14vw, 25px);
+  width: 41vh;
+  right: clamp(7px, 2vw, 25px);
   bottom: clamp(1000px, 12vh, 571px);
 }
 
