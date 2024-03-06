@@ -474,6 +474,6 @@ footer {
 @media (max-width: 1900px) and (max-height: 1100px) {
   .book-background {
     position: relative;
-    top: -71vh;
+    top: -79vh;
   }
 }
