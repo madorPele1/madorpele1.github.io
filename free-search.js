@@ -44,7 +44,7 @@ async function initApp() {
       .map(
         ({ word, translation, category: wordClass, definition }) => `
         <li>
-          <p style="font-size: 40px; margin: 0; font-weight: bolder; display: inline">${word}</p>
+          <p style="font-size: 30px; margin: 0; font-weight: bolder; display: inline">${word}</p>
           <p style="font-size: 30px; margin: 0; display: inline;">[${wordClass.join(', ')}]</p>
           <p style="color: orange; font-size: 20px;">${translation}</p>
           <p style="font-size: 25px;">${highlightSearchTerm(definition, searchTerm)}</p>
