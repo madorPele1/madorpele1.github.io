@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>עוזר למילון</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        direction: rtl;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #333;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input[type='text'] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      #dictionary {
+        margin-top: 20px;
+      }
+
+      .dictionary-item {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 4px;
+      }
+
+      .copy-button {
+        display: block;
+        margin: 0 auto;
+      }
+      img {
+        width: 1vw;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>עוזר למילון</h1>
+
+    <div class="container">
+      <div>
+        <label for="word">מילה:</label>
+        <input type="text" id="word" />
+      </div>
+      <div>
+        <label for="category">קטגוריה:</label>
+        <input type="text" id="category" />
+      </div>
+      <div>
+        <label for="translation">תרגום:</label>
+        <input type="text" id="translation" />
+      </div>
+      <div>
+        <label for="definition">פירוש:</label>
+        <input type="text" id="definition" />
+      </div>
+
+      <button onclick="addToDictionary()">הוספה לרשימה</button>
+
+      <!-- Button to copy the list -->
+      <button onclick="copyList()" class="copy-button">
+        <img src="assets/copy.svg" alt="copy" />
+      </button>
+    </div>
+
+    <div id="dictionary" class="container"></div>
+
+    <script>
+      // Function to add input to the dictionary list
+      function addToDictionary() {
+        var word = document.getElementById('word').value
+        var category = document.getElementById('category').value
+        var translation = document.getElementById('translation').value
+        var definition = document.getElementById('definition').value
+
+        // Format the input into JSON format
+        var newItem = {
+          word: word,
+          category: category.split(',').map((cat) => cat.trim()), // Split categories and trim whitespace
+          translation: translation,
+          definition: definition,
+        }
+
+        // Create a string representation of the new item
+        var itemString = JSON.stringify(newItem, null, 2) // Adds indentation and line breaks
+
+        // Append the new item to the dictionary list
+        var dictionary = document.getElementById('dictionary')
+        var listItem = document.createElement('div')
+        listItem.classList.add('dictionary-item') // Add class for styling
+        listItem.textContent = itemString
+        dictionary.appendChild(listItem)
+
+        // Clear input fields
+        document.getElementById('word').value = ''
+        document.getElementById('category').value = ''
+        document.getElementById('translation').value = ''
+        document.getElementById('definition').value = ''
+      }
+
+      // Function to copy the list
+      function copyList() {
+        var dictionary = document.getElementById('dictionary')
+        var range = document.createRange()
+        range.selectNode(dictionary)
+        window.getSelection().removeAllRanges()
+        window.getSelection().addRange(range)
+        document.execCommand('copy')
+        window.getSelection().removeAllRanges()
+        alert('הרשימה הועתקה ללוח')
+      }
+    </script>
+  </body>
+</html>
