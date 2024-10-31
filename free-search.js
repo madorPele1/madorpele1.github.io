@@ -7,6 +7,19 @@ function topFunction() {
   });
 }
 
+function menuCollapsing(index) {
+  let collapsibleMenu = document.getElementsByClassName("collapsible-menu");
+  let collapsibleMenuBtn = document.getElementsByClassName("collapsible-menu-btn");
+
+  if (collapsibleMenu[index].style.display === "block") {
+    collapsibleMenu[index].style.display = "none";
+    collapsibleMenuBtn[index].innerHTML = "+";
+  } else {
+    collapsibleMenu[index].style.display = "block";
+    collapsibleMenuBtn[index].innerHTML = "-";
+  }
+}
+
 async function initApp() {
   const searchButton = document.getElementById('searchBtn');
   const searchInput = document.getElementById('searchInput');
@@ -42,12 +55,15 @@ async function initApp() {
   function displaySearchResults(words, searchTerm) {
     searchResultsList.innerHTML = words
       .map(
-        ({ word, translation, category: wordClass, definition }) => `
+        ({ word, translation, category: wordClass, definition }, index) => `
         <li>
-          <p style="font-size: 30px; margin: 0; font-weight: bolder; display: inline">${word}</p>
+          <button onclick="menuCollapsing(${index})" class="collapsible-menu-btn" style="cursor: pointer; font-size: 30px; font-weight: bolder; border-color: transparent; background: transparent;">+</button>
+          <p onclick="menuCollapsing(${index})" style="font-size: 30px; margin: 0; font-weight: bolder; display: inline">${word}</p>
           <p style="font-size: 30px; margin: 0; display: inline;">[${wordClass.join(', ')}]</p>
-          <p style="color: orange; font-size: 20px;">${translation}</p>
-          <p style="font-size: 25px;">${highlightSearchTerm(definition, searchTerm)}</p>
+          <div class="collapsible-menu" style="display: none">
+            <p style="color: orange; font-size: 20px;">${translation}</p>
+            <p style="font-size: 25px;">${highlightSearchTerm(definition, searchTerm)}</p>
+          </div>
         </li>
       `
       )

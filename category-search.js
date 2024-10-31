@@ -7,6 +7,19 @@ function topFunction() {
   });
 }
 
+function menuCollapsing(index) {
+  let collapsibleMenu = document.getElementsByClassName("collapsible-menu");
+  let collapsibleMenuBtn = document.getElementsByClassName("collapsible-menu-btn");
+
+  if (collapsibleMenu[index].style.display === "block") {
+    collapsibleMenu[index].style.display = "none";
+    collapsibleMenuBtn[index].innerHTML = "+";
+  } else {
+    collapsibleMenu[index].style.display = "block";
+    collapsibleMenuBtn[index].innerHTML = "-";
+  }
+}
+
 function initCategorySearch() {
   let dictionaryData = JSON.parse(localStorage.getItem('dictionaryData'));
 
@@ -28,11 +41,14 @@ function initCategorySearch() {
   function displayWords(words) {
     searchResultsList.innerHTML = words
       .map(
-        ({ word, translation, category: wordCategories, definition }) => `
+        ({ word, translation, category: wordCategories, definition }, index) => `
         <li>
-          <p style="font-size: 30px; margin: 0;">${word} [${wordCategories.join(', ')}]</p>
-          <p style="color: orange; font-size: 20px;">${translation}</p>
-          <p style="font-size: 25px;">${definition}</p>
+          <button onclick="menuCollapsing(${index})" class="collapsible-menu-btn" style="cursor: pointer; font-size: 30px; font-weight: bolder; border-color: transparent; background: transparent;">+</button>
+          <p onclick="menuCollapsing(${index})" style="cursor: pointer; font-size: 30px; margin: 0; display: inline">${word} [${wordCategories.join(', ')}]</p>
+          <div class="collapsible-menu" style="display: none">
+            <p style="color: orange; font-size: 20px;">${translation}</p>
+            <p style="font-size: 25px;">${definition}</p>
+          </div>
         </li>
       `
       )
